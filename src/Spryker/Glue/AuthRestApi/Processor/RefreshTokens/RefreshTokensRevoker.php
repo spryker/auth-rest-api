@@ -46,6 +46,12 @@ class RefreshTokensRevoker implements RefreshTokensRevokerInterface
     public function revokeRefreshToken(RestRequestInterface $restRequest): RestResponseInterface
     {
         $refreshTokenIdentifier = $restRequest->getResource()->getId();
+
+        if (!$refreshTokenIdentifier) {
+            return $this->restResourceBuilder->createRestResponse()
+                ->setStatus(Response::HTTP_BAD_REQUEST);
+        }
+
         if ($this->isResourceIdentifierCurrentUser($refreshTokenIdentifier)) {
             return $this->revokeCustomerRefreshTokens($restRequest);
         }
@@ -61,7 +67,9 @@ class RefreshTokensRevoker implements RefreshTokensRevokerInterface
      */
     protected function revokeRefreshTokenByIdentifier(string $refreshTokenIdentifier, RestRequestInterface $restRequest): RestResponseInterface
     {
-        $this->oauthClient->revokeRefreshToken($refreshTokenIdentifier, $restRequest->getRestUser()->getNaturalIdentifier());
+        $naturalIdentifier = $restRequest->getRestUser()?->getNaturalIdentifier() ?? '';
+
+        $this->oauthClient->revokeRefreshToken($refreshTokenIdentifier, $naturalIdentifier);
 
         return $this->restResourceBuilder->createRestResponse()->setStatus(Response::HTTP_NO_CONTENT);
     }
@@ -73,7 +81,9 @@ class RefreshTokensRevoker implements RefreshTokensRevokerInterface
      */
     protected function revokeCustomerRefreshTokens(RestRequestInterface $restRequest): RestResponseInterface
     {
-        $this->oauthClient->revokeAllRefreshTokens($restRequest->getRestUser()->getNaturalIdentifier());
+        $naturalIdentifier = $restRequest->getRestUser()?->getNaturalIdentifier() ?? '';
+
+        $this->oauthClient->revokeAllRefreshTokens($naturalIdentifier);
 
         return $this->restResourceBuilder->createRestResponse()->setStatus(Response::HTTP_NO_CONTENT);
     }

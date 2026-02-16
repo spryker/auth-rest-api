@@ -135,7 +135,7 @@ class AccessTokenUserFinder implements AccessTokenUserFinderInterface
     ): RestUserTransfer {
         /** @var array<string, mixed> $customerIdentifier */
         $customerIdentifier = $this->utilEncodingService->decodeJson(
-            $oauthAccessTokenDataTransfer->getOauthUserId(),
+            $oauthAccessTokenDataTransfer->getOauthUserId() ?? '',
             true,
         );
 

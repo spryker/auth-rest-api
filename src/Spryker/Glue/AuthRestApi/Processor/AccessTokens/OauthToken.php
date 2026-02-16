@@ -73,7 +73,7 @@ class OauthToken implements OauthTokenInterface
 
             //This is added for BC reasons since Oauth module is not compliant with above RFC, this shim is needed
             //to make the API endpoint compliant until a major change updates Oauth
-            if ($oauthResponseTransfer->getError()->getErrorType() === 'invalid_credentials') {
+            if ($oauthResponseTransfer->getError() && $oauthResponseTransfer->getError()->getErrorType() === 'invalid_credentials') {
                 return $response->setData([
                     'error' => 'invalid_grant',
                     'error_description' => 'The provided authorization grant (e.g., authorization code, resource owner credentials) or refresh token '
@@ -85,8 +85,8 @@ class OauthToken implements OauthTokenInterface
             $this->auditLogger->addFailedLoginAuditLog($oauthRequestTransfer);
 
             return $response->setData([
-                'error' => $oauthResponseTransfer->getError()->getErrorType(),
-                'error_description' => $oauthResponseTransfer->getError()->getMessage(),
+                'error' => $oauthResponseTransfer->getError()?->getErrorType() ?? 'unknown_error',
+                'error_description' => $oauthResponseTransfer->getError()?->getMessage() ?? 'An unknown error occurred',
             ]);
         }
 
