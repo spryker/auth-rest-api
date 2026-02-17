@@ -5,7 +5,7 @@
  * Use of this software requires acceptance of the Evaluation License Agreement. See LICENSE file.
  */
 
-namespace SprykerTest\Glue\GlueApplication\Rest\Request;
+namespace SprykerTest\Glue\AuthRestApi\Processor\AccessTokens;
 
 use Codeception\Test\Unit;
 use Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer;
@@ -21,9 +21,9 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @group SprykerTest
  * @group Glue
- * @group GlueApplication
- * @group Rest
- * @group Request
+ * @group AuthRestApi
+ * @group Processor
+ * @group AccessTokens
  * @group AccessTokenValidatorTest
  * Add your own group annotations below this line
  */
