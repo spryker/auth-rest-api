@@ -14,17 +14,11 @@ use Spryker\Client\Kernel\AbstractFactory;
 
 class AuthRestApiFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\AuthRestApi\Zed\AuthRestApiZedStubInterface
-     */
     public function createAuthRestApiZedStub(): AuthRestApiZedStubInterface
     {
         return new AuthRestApiZedStub($this->getZedRequestClient());
     }
 
-    /**
-     * @return \Spryker\Client\AuthRestApi\Dependency\Client\AuthRestApiToZedRequestClientInterface
-     */
     public function getZedRequestClient(): AuthRestApiToZedRequestClientInterface
     {
         return $this->getProvidedDependency(AuthRestApiDependencyProvider::CLIENT_ZED_REQUEST);

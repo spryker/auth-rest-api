@@ -18,19 +18,11 @@ class AuthRestApiZedStub implements AuthRestApiZedStubInterface
      */
     protected $zedRequestClient;
 
-    /**
-     * @param \Spryker\Client\AuthRestApi\Dependency\Client\AuthRestApiToZedRequestClientInterface $zedRequestClient
-     */
     public function __construct(AuthRestApiToZedRequestClientInterface $zedRequestClient)
     {
         $this->zedRequestClient = $zedRequestClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function createAccessToken(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         /** @var \Generated\Shared\Transfer\OauthResponseTransfer $oauthResponseTransfer */

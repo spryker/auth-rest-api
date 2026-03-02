@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\OauthResponseTransfer;
 
 interface AuthRestApiToOauthFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function processAccessTokenRequest(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer;
 }

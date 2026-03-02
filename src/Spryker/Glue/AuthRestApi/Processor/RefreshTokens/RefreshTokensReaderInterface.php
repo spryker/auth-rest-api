@@ -12,10 +12,5 @@ use Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface;
 
 interface RefreshTokensReaderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\RestRefreshTokensAttributesTransfer $restRefreshTokenAttributesTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function processAccessTokenRequest(RestRefreshTokensAttributesTransfer $restRefreshTokenAttributesTransfer): RestResponseInterface;
 }

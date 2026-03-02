@@ -29,9 +29,6 @@ class AuthRestApiFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -39,9 +36,6 @@ class AuthRestApiFacadeTest extends Unit
         $this->setUserProvider();
     }
 
-    /**
-     * @return void
-     */
     public function testProcessAccessTokenWillGetValidOauthResponseTransfer(): void
     {
         // Arrange
@@ -57,9 +51,6 @@ class AuthRestApiFacadeTest extends Unit
         $this->assertNotEmpty($oauthResponseTransfer->getAccessToken());
     }
 
-    /**
-     * @return void
-     */
     public function testProcessAccessTokenWillGetInvalidOauthResponseTransfer(): void
     {
         // Arrange
@@ -75,9 +66,6 @@ class AuthRestApiFacadeTest extends Unit
         $this->assertEmpty($oauthResponseTransfer->getCustomerReference());
     }
 
-    /**
-     * @return void
-     */
     protected function setUserProvider(): void
     {
         $this->tester->setDependency(OauthDependencyProvider::PLUGIN_USER_PROVIDER, [

@@ -18,9 +18,6 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class AuthRestApiBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\AuthRestApi\Business\AccessToken\AccessTokenCreatorInterface
-     */
     public function createAccessTokenCreator(): AccessTokenCreatorInterface
     {
         return new AccessTokenCreator(
@@ -29,9 +26,6 @@ class AuthRestApiBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\AuthRestApi\Dependency\Facade\AuthRestApiToOauthFacadeInterface
-     */
     public function getOauthFacade(): AuthRestApiToOauthFacadeInterface
     {
         return $this->getProvidedDependency(AuthRestApiDependencyProvider::FACADE_OAUTH);

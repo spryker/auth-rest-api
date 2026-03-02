@@ -38,11 +38,6 @@ class AuthRestApiDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_REST_USER_EXPANDER = 'PLUGINS_REST_USER_EXPANDER';
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     public function provideDependencies(Container $container): Container
     {
         $container = parent::provideDependencies($container);
@@ -54,11 +49,6 @@ class AuthRestApiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addOauthClient(Container $container): Container
     {
         $container->set(static::CLIENT_OAUTH, function (Container $container) {
@@ -68,11 +58,6 @@ class AuthRestApiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addOauthService(Container $container): Container
     {
         $container->set(static::SERVICE_OAUTH, function (Container $container) {
@@ -84,11 +69,6 @@ class AuthRestApiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addUtilEncodingService(Container $container): Container
     {
         $container->set(static::SERVICE_UTIL_ENCODING, function (Container $container) {
@@ -100,11 +80,6 @@ class AuthRestApiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Glue\Kernel\Container $container
-     *
-     * @return \Spryker\Glue\Kernel\Container
-     */
     protected function addRestUserExpanderPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_REST_USER_EXPANDER, function () {

@@ -26,10 +26,6 @@ class RefreshTokensRevoker implements RefreshTokensRevokerInterface
      */
     protected $restResourceBuilder;
 
-    /**
-     * @param \Spryker\Glue\AuthRestApi\Dependency\Client\AuthRestApiToOauthClientInterface $oauthClient
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     */
     public function __construct(
         AuthRestApiToOauthClientInterface $oauthClient,
         RestResourceBuilderInterface $restResourceBuilder
@@ -38,11 +34,6 @@ class RefreshTokensRevoker implements RefreshTokensRevokerInterface
         $this->restResourceBuilder = $restResourceBuilder;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function revokeRefreshToken(RestRequestInterface $restRequest): RestResponseInterface
     {
         $refreshTokenIdentifier = $restRequest->getResource()->getId();
@@ -59,12 +50,6 @@ class RefreshTokensRevoker implements RefreshTokensRevokerInterface
         return $this->revokeRefreshTokenByIdentifier($refreshTokenIdentifier, $restRequest);
     }
 
-    /**
-     * @param string $refreshTokenIdentifier
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     protected function revokeRefreshTokenByIdentifier(string $refreshTokenIdentifier, RestRequestInterface $restRequest): RestResponseInterface
     {
         $naturalIdentifier = $restRequest->getRestUser()?->getNaturalIdentifier() ?? '';
@@ -74,11 +59,6 @@ class RefreshTokensRevoker implements RefreshTokensRevokerInterface
         return $this->restResourceBuilder->createRestResponse()->setStatus(Response::HTTP_NO_CONTENT);
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     protected function revokeCustomerRefreshTokens(RestRequestInterface $restRequest): RestResponseInterface
     {
         $naturalIdentifier = $restRequest->getRestUser()?->getNaturalIdentifier() ?? '';
@@ -88,11 +68,6 @@ class RefreshTokensRevoker implements RefreshTokensRevokerInterface
         return $this->restResourceBuilder->createRestResponse()->setStatus(Response::HTTP_NO_CONTENT);
     }
 
-    /**
-     * @param string $resourceIdentifier
-     *
-     * @return bool
-     */
     protected function isResourceIdentifierCurrentUser(string $resourceIdentifier): bool
     {
         return $resourceIdentifier === AuthRestApiConfig::COLLECTION_IDENTIFIER_CURRENT_USER;

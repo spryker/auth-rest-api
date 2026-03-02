@@ -35,11 +35,6 @@ class AccessTokenCreator implements AccessTokenCreatorInterface
         $this->postAuthPlugins = $postAuthPlugins;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function createAccessToken(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         $oauthResponseTransfer = $this->oauthFacade->processAccessTokenRequest($oauthRequestTransfer);

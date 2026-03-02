@@ -16,11 +16,6 @@ use Spryker\Zed\Kernel\Communication\Controller\AbstractGatewayController;
  */
 class GatewayController extends AbstractGatewayController
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function createAccessTokenAction(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         return $this->getFacade()->createAccessToken($oauthRequestTransfer);

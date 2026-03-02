@@ -51,9 +51,6 @@ class AccessTokenValidatorTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testValidateShouldReturnErrorWhenTokenIsNotProvidedForProtectedRoutes(): void
     {
         // Arrange
@@ -71,9 +68,6 @@ class AccessTokenValidatorTest extends Unit
         $this->assertSame(AuthRestApiConfig::RESPONSE_CODE_FORBIDDEN, $restErrorMessageTransfer->getCode());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateShouldReturnNullWhenTokenIsNotProvidedForUnprotectedRoutes(): void
     {
         // Arrange
@@ -87,9 +81,6 @@ class AccessTokenValidatorTest extends Unit
         $this->assertNull($restErrorMessageTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testValidateShouldReturnErrorWhenTokenIsEmpty(): void
     {
         // Arrange
@@ -107,9 +98,6 @@ class AccessTokenValidatorTest extends Unit
         $this->assertSame(AuthRestApiConfig::RESPONSE_CODE_ACCESS_CODE_INVALID, $restErrorMessageTransfer->getCode());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateShouldReturnErrorWhenTokenTypeIsEmpty(): void
     {
         // Arrange
@@ -127,9 +115,6 @@ class AccessTokenValidatorTest extends Unit
         $this->assertSame(AuthRestApiConfig::RESPONSE_CODE_ACCESS_CODE_INVALID, $restErrorMessageTransfer->getCode());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateShouldReturnErrorWhenTokenIsInvalid(): void
     {
         // Arrange
@@ -147,9 +132,6 @@ class AccessTokenValidatorTest extends Unit
         $this->assertSame(AuthRestApiConfig::RESPONSE_CODE_ACCESS_CODE_INVALID, $restErrorMessageTransfer->getCode());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateShouldReturnNullWhenTokenIsValid(): void
     {
         // Arrange
@@ -165,21 +147,11 @@ class AccessTokenValidatorTest extends Unit
         $this->assertNull($restErrorMessageTransfer);
     }
 
-    /**
-     * @param \Spryker\Glue\AuthRestApi\Dependency\Client\AuthRestApiToOauthClientInterface $oauthClient
-     *
-     * @return \Spryker\Glue\AuthRestApi\Processor\AccessTokens\AccessTokenValidatorInterface
-     */
     protected function createAccessTokenValidator(AuthRestApiToOauthClientInterface $oauthClient): AccessTokenValidatorInterface
     {
         return new AccessTokenValidator($oauthClient);
     }
 
-    /**
-     * @param bool $isTokenValid
-     *
-     * @return \Spryker\Glue\AuthRestApi\Dependency\Client\AuthRestApiToOauthClientInterface
-     */
     protected function createOauthClientMock(bool $isTokenValid = true): AuthRestApiToOauthClientInterface
     {
         $oauthClient = $this->createMock(AuthRestApiToOauthClientInterface::class);
@@ -205,12 +177,6 @@ class AccessTokenValidatorTest extends Unit
         return $request;
     }
 
-    /**
-     * @param string $type
-     * @param string $token
-     *
-     * @return string
-     */
     protected function createAuthorizationToken(string $type, string $token): string
     {
         return sprintf('%s %s', $type, $token);

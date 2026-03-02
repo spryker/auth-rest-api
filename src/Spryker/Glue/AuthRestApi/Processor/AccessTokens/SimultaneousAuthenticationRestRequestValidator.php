@@ -16,12 +16,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class SimultaneousAuthenticationRestRequestValidator implements SimultaneousAuthenticationRestRequestValidatorInterface
 {
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\RestErrorCollectionTransfer|null
-     */
     public function validate(Request $request, RestRequestInterface $restRequest): ?RestErrorCollectionTransfer
     {
         $authorizationToken = $request->headers->get(AuthRestApiConfig::HEADER_AUTHORIZATION);

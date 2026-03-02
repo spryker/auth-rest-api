@@ -26,11 +26,6 @@ class AuthRestApiDependencyProvider extends AbstractBundleDependencyProvider
      */
     public const PLUGINS_POST_AUTH = 'PLUGINS_POST_AUTH';
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     public function provideBusinessLayerDependencies(Container $container): Container
     {
         $container = parent::provideBusinessLayerDependencies($container);
@@ -40,11 +35,6 @@ class AuthRestApiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addOauthFacade(Container $container): Container
     {
         $container->set(static::FACADE_OAUTH, function (Container $container) {
@@ -54,11 +44,6 @@ class AuthRestApiDependencyProvider extends AbstractBundleDependencyProvider
         return $container;
     }
 
-    /**
-     * @param \Spryker\Zed\Kernel\Container $container
-     *
-     * @return \Spryker\Zed\Kernel\Container
-     */
     protected function addPostAuthPlugins(Container $container): Container
     {
         $container->set(static::PLUGINS_POST_AUTH, function () {

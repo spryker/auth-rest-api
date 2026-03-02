@@ -57,11 +57,6 @@ class AccessTokenUserFinder implements AccessTokenUserFinderInterface
         $this->restUserMapperPlugins = $restUserExpanderPlugins;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\RestUserTransfer|null
-     */
     public function findUser(RestRequestInterface $restRequest): ?RestUserTransfer
     {
         $authorizationToken = $restRequest->getHttpRequest()->headers->get(AuthRestApiConfig::HEADER_AUTHORIZATION);
@@ -75,11 +70,6 @@ class AccessTokenUserFinder implements AccessTokenUserFinderInterface
         return $this->findRestUserTransfer($restRequest, $oauthAccessTokenDataTransfer);
     }
 
-    /**
-     * @param string $authorizationToken
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenDataTransfer
-     */
     protected function findUserByAccessToken(string $authorizationToken): OauthAccessTokenDataTransfer
     {
         [$type, $accessToken] = $this->extractToken($authorizationToken);
@@ -106,12 +96,6 @@ class AccessTokenUserFinder implements AccessTokenUserFinderInterface
         return $result;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer
-     *
-     * @return \Generated\Shared\Transfer\RestUserTransfer|null
-     */
     protected function findRestUserTransfer(
         RestRequestInterface $restRequest,
         OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer
@@ -123,12 +107,6 @@ class AccessTokenUserFinder implements AccessTokenUserFinderInterface
         return $this->mapRestUserTransfer($oauthAccessTokenDataTransfer, $restRequest);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\RestUserTransfer
-     */
     protected function mapRestUserTransfer(
         OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer,
         RestRequestInterface $restRequest

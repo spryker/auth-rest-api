@@ -23,9 +23,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class TokenResourceControllerTest extends AbstractControllerTest
 {
-    /**
-     * @return void
-     */
     public function testPostActionAddsFailedLoginAuditLogWhenGrantTypeIsNotCorrect(): void
     {
         // Arrange
@@ -35,9 +32,6 @@ class TokenResourceControllerTest extends AbstractControllerTest
         $tokenResourceControllerMock->postAction(new Request());
     }
 
-    /**
-     * @return void
-     */
     public function testPostActionAddsFailedLoginAuditLogWhenOauthResponseIsNotValid(): void
     {
         // Arrange
@@ -47,9 +41,6 @@ class TokenResourceControllerTest extends AbstractControllerTest
         $tokenResourceControllerMock->postAction(new Request([], ['grant_type' => 'password']));
     }
 
-    /**
-     * @return void
-     */
     public function testPostActionAddsSuccessfulLoginAuditLogOnSuccessfulLogin(): void
     {
         // Arrange

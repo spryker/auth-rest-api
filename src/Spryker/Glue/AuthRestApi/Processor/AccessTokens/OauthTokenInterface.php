@@ -12,10 +12,5 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 interface OauthTokenInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function createAccessToken(OauthRequestTransfer $oauthRequestTransfer): JsonResponse;
 }

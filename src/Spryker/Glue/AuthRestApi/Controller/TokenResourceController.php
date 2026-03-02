@@ -17,11 +17,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class TokenResourceController extends FormattedAbstractController
 {
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $httpRequest
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function postAction(Request $httpRequest): JsonResponse
     {
         $oauthRequestTransfer = (new OauthRequestTransfer())->fromArray($httpRequest->request->all(), true);

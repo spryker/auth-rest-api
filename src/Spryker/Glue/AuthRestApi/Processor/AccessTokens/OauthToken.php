@@ -33,10 +33,6 @@ class OauthToken implements OauthTokenInterface
      */
     protected AuditLoggerInterface $auditLogger;
 
-    /**
-     * @param \Spryker\Client\AuthRestApi\AuthRestApiClientInterface $authRestApiClient
-     * @param \Spryker\Glue\AuthRestApi\Processor\Logger\AuditLoggerInterface $auditLogger
-     */
     public function __construct(
         AuthRestApiClientInterface $authRestApiClient,
         AuditLoggerInterface $auditLogger
@@ -45,11 +41,6 @@ class OauthToken implements OauthTokenInterface
         $this->auditLogger = $auditLogger;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function createAccessToken(OauthRequestTransfer $oauthRequestTransfer): JsonResponse
     {
         $response = new JsonResponse();

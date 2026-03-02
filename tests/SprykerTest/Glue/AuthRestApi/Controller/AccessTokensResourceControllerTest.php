@@ -24,9 +24,6 @@ use SprykerTest\Glue\GlueApplication\Stub\RestRequest;
  */
 class AccessTokensResourceControllerTest extends AbstractControllerTest
 {
-    /**
-     * @return void
-     */
     public function testPostActionAddsFailedLoginAuditLogWhenLoginAttemptFails(): void
     {
         // Arrange
@@ -38,9 +35,6 @@ class AccessTokensResourceControllerTest extends AbstractControllerTest
         $accessTokensResourceControllerMock->postAction($restRequest, $restAccessTokensAttributesTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testPostActionAddsSuccessfulLoginAuditLogOnSuccessfulLogin(): void
     {
         // Arrange

@@ -56,9 +56,6 @@ class AuthRestApiBusinessTester extends Actor
      */
     protected const TEST_PASSWORD = 'test password';
 
-    /**
-     * @return \Generated\Shared\Transfer\OauthRequestTransfer
-     */
     public function prepareOauthRequestTransfer(): OauthRequestTransfer
     {
         $customerTransfer = $this->haveCustomer([
@@ -77,9 +74,6 @@ class AuthRestApiBusinessTester extends Actor
         ))->build();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\OauthRequestTransfer
-     */
     public function prepareOauthRequestTransferWithoutCustomerData(): OauthRequestTransfer
     {
         return (new OauthRequestBuilder(

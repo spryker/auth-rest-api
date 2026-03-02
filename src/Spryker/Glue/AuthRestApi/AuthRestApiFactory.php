@@ -35,9 +35,6 @@ use Spryker\Glue\Kernel\AbstractFactory;
  */
 class AuthRestApiFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Processor\AccessTokens\AccessTokensReaderInterface
-     */
     public function createAccessTokensReader(): AccessTokensReaderInterface
     {
         return new AccessTokensReader(
@@ -48,9 +45,6 @@ class AuthRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Processor\RefreshTokens\RefreshTokensReaderInterface
-     */
     public function createRefreshTokensReader(): RefreshTokensReaderInterface
     {
         return new RefreshTokensReader(
@@ -60,9 +54,6 @@ class AuthRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Processor\RefreshTokens\RefreshTokensRevokerInterface
-     */
     public function createRefreshTokenRevoker(): RefreshTokensRevokerInterface
     {
         return new RefreshTokensRevoker(
@@ -71,25 +62,16 @@ class AuthRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Processor\AccessTokens\AccessTokenValidatorInterface
-     */
     public function createAccessTokenValidator(): AccessTokenValidatorInterface
     {
         return new AccessTokenValidator($this->getOauthClient());
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Processor\ResponseFormatter\AuthenticationErrorResponseHeadersFormatter
-     */
     public function createAuthenticationErrorResponseHeadersFormatter(): AuthenticationErrorResponseHeadersFormatter
     {
         return new AuthenticationErrorResponseHeadersFormatter();
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Processor\AccessTokens\AccessTokenUserFinderInterface
-     */
     public function createAccessTokenUserFinder(): AccessTokenUserFinderInterface
     {
         return new AccessTokenUserFinder(
@@ -99,49 +81,31 @@ class AuthRestApiFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Processor\AccessTokens\OauthTokenInterface
-     */
     public function createOauthToken(): OauthTokenInterface
     {
         return new OauthToken($this->getClient(), $this->createAuditLogger());
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Processor\AccessTokens\SimultaneousAuthenticationRestRequestValidatorInterface
-     */
     public function createSimultaneousAuthenticationRestRequestValidator(): SimultaneousAuthenticationRestRequestValidatorInterface
     {
         return new SimultaneousAuthenticationRestRequestValidator();
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Processor\Logger\AuditLoggerInterface
-     */
     public function createAuditLogger(): AuditLoggerInterface
     {
         return new AuditLogger();
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Dependency\Client\AuthRestApiToOauthClientInterface
-     */
     public function getOauthClient(): AuthRestApiToOauthClientInterface
     {
         return $this->getProvidedDependency(AuthRestApiDependencyProvider::CLIENT_OAUTH);
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Dependency\Service\AuthRestApiToOauthServiceInterface
-     */
     public function getOauthService(): AuthRestApiToOauthServiceInterface
     {
         return $this->getProvidedDependency(AuthRestApiDependencyProvider::SERVICE_OAUTH);
     }
 
-    /**
-     * @return \Spryker\Glue\AuthRestApi\Dependency\Service\AuthRestApiToUtilEncodingServiceInterface
-     */
     public function getUtilEncodingService(): AuthRestApiToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(AuthRestApiDependencyProvider::SERVICE_UTIL_ENCODING);

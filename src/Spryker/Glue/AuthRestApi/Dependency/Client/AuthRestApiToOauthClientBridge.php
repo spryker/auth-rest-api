@@ -28,11 +28,6 @@ class AuthRestApiToOauthClientBridge implements AuthRestApiToOauthClientInterfac
         $this->oauthClient = $oauthClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function processAccessTokenRequest(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer
     {
         return $this->oauthClient->processAccessTokenRequest($oauthRequestTransfer);
@@ -51,33 +46,17 @@ class AuthRestApiToOauthClientBridge implements AuthRestApiToOauthClientInterfac
         return $this->oauthClient->validateAccessToken($authAccessTokenValidationRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
-     */
     public function validateOauthAccessToken(
         OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
     ): OauthAccessTokenValidationResponseTransfer {
         return $this->oauthClient->validateOauthAccessToken($authAccessTokenValidationRequestTransfer);
     }
 
-    /**
-     * @param string $refreshTokenIdentifier
-     * @param string $customerReference
-     *
-     * @return \Generated\Shared\Transfer\RevokeRefreshTokenResponseTransfer
-     */
     public function revokeRefreshToken(string $refreshTokenIdentifier, string $customerReference): RevokeRefreshTokenResponseTransfer
     {
         return $this->oauthClient->revokeRefreshToken($refreshTokenIdentifier, $customerReference);
     }
 
-    /**
-     * @param string $customerReference
-     *
-     * @return \Generated\Shared\Transfer\RevokeRefreshTokenResponseTransfer
-     */
     public function revokeAllRefreshTokens(string $customerReference): RevokeRefreshTokenResponseTransfer
     {
         return $this->oauthClient->revokeAllRefreshTokens($customerReference);

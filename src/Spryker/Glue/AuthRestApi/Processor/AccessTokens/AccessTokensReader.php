@@ -41,12 +41,6 @@ class AccessTokensReader implements AccessTokensReaderInterface
      */
     protected AuditLoggerInterface $auditLogger;
 
-    /**
-     * @param \Spryker\Client\AuthRestApi\AuthRestApiClientInterface $authRestApiClient
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     * @param \Spryker\Glue\AuthRestApi\AuthRestApiConfig $authRestApiConfig
-     * @param \Spryker\Glue\AuthRestApi\Processor\Logger\AuditLoggerInterface $auditLogger
-     */
     public function __construct(
         AuthRestApiClientInterface $authRestApiClient,
         RestResourceBuilderInterface $restResourceBuilder,
@@ -59,12 +53,6 @@ class AccessTokensReader implements AccessTokensReaderInterface
         $this->auditLogger = $auditLogger;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     * @param \Generated\Shared\Transfer\RestAccessTokensAttributesTransfer $restAccessTokensAttributesTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function processAccessTokenRequest(
         RestRequestInterface $restRequest,
         RestAccessTokensAttributesTransfer $restAccessTokensAttributesTransfer

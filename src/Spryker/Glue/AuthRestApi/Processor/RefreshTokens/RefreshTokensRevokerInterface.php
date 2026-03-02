@@ -12,10 +12,5 @@ use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
 
 interface RefreshTokensRevokerInterface
 {
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function revokeRefreshToken(RestRequestInterface $restRequest): RestResponseInterface;
 }

@@ -12,10 +12,5 @@ use Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface;
 
 interface AccessTokenUserFinderInterface
 {
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\Request\Data\RestRequestInterface $restRequest
-     *
-     * @return \Generated\Shared\Transfer\RestUserTransfer|null
-     */
     public function findUser(RestRequestInterface $restRequest): ?RestUserTransfer;
 }

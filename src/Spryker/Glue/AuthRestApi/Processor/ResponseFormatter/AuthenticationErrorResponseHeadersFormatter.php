@@ -12,12 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class AuthenticationErrorResponseHeadersFormatter implements AuthenticationErrorResponseHeadersFormatterInterface
 {
-    /**
-     * @param \Symfony\Component\HttpFoundation\Response $httpResponse
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface $restResponse
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function format(
         Response $httpResponse,
         RestResponseInterface $restResponse
@@ -35,11 +29,6 @@ class AuthenticationErrorResponseHeadersFormatter implements AuthenticationError
         return $httpResponse;
     }
 
-    /**
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface $restResponse
-     *
-     * @return bool
-     */
     protected function hasAuthorizationError(RestResponseInterface $restResponse): bool
     {
         foreach ($restResponse->getErrors() as $restErrorMessageTransfer) {

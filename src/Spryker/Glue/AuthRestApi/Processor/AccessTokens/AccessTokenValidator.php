@@ -27,19 +27,11 @@ class AccessTokenValidator implements AccessTokenValidatorInterface
      */
     protected $oauthClient;
 
-    /**
-     * @param \Spryker\Glue\AuthRestApi\Dependency\Client\AuthRestApiToOauthClientInterface $oauthClient
-     */
     public function __construct(AuthRestApiToOauthClientInterface $oauthClient)
     {
         $this->oauthClient = $oauthClient;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Generated\Shared\Transfer\RestErrorMessageTransfer|null
-     */
     public function validate(Request $request): ?RestErrorMessageTransfer
     {
         $isProtected = $request->attributes->get(static::REQUEST_ATTRIBUTE_IS_PROTECTED, false);
@@ -68,13 +60,6 @@ class AccessTokenValidator implements AccessTokenValidatorInterface
         return null;
     }
 
-    /**
-     * @param string $detail
-     * @param int $status
-     * @param string $code
-     *
-     * @return \Generated\Shared\Transfer\RestErrorMessageTransfer
-     */
     protected function createErrorMessageTransfer(
         string $detail,
         int $status,
@@ -120,11 +105,6 @@ class AccessTokenValidator implements AccessTokenValidatorInterface
         return $result[0] ?? null;
     }
 
-    /**
-     * @param string $authorizationToken
-     *
-     * @return bool
-     */
     protected function validateAccessToken(string $authorizationToken): bool
     {
         $accessToken = $this->extractToken($authorizationToken);

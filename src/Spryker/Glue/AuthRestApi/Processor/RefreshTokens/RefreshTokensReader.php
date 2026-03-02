@@ -33,11 +33,6 @@ class RefreshTokensReader implements RefreshTokensReaderInterface
      */
     protected $authRestApiConfig;
 
-    /**
-     * @param \Spryker\Glue\AuthRestApi\Dependency\Client\AuthRestApiToOauthClientInterface $oauthClient
-     * @param \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResourceBuilderInterface $restResourceBuilder
-     * @param \Spryker\Glue\AuthRestApi\AuthRestApiConfig $authRestApiConfig
-     */
     public function __construct(
         AuthRestApiToOauthClientInterface $oauthClient,
         RestResourceBuilderInterface $restResourceBuilder,
@@ -48,11 +43,6 @@ class RefreshTokensReader implements RefreshTokensReaderInterface
         $this->authRestApiConfig = $authRestApiConfig;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\RestRefreshTokensAttributesTransfer $restRefreshTokenAttributesTransfer
-     *
-     * @return \Spryker\Glue\GlueApplication\Rest\JsonApi\RestResponseInterface
-     */
     public function processAccessTokenRequest(RestRefreshTokensAttributesTransfer $restRefreshTokenAttributesTransfer): RestResponseInterface
     {
         $oauthRequestTransfer = new OauthRequestTransfer();

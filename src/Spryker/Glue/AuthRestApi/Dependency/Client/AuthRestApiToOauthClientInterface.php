@@ -15,11 +15,6 @@ use Generated\Shared\Transfer\RevokeRefreshTokenResponseTransfer;
 
 interface AuthRestApiToOauthClientInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRequestTransfer $oauthRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthResponseTransfer
-     */
     public function processAccessTokenRequest(OauthRequestTransfer $oauthRequestTransfer): OauthResponseTransfer;
 
     /**
@@ -33,27 +28,11 @@ interface AuthRestApiToOauthClientInterface
         OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
     ): OauthAccessTokenValidationResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthAccessTokenValidationResponseTransfer
-     */
     public function validateOauthAccessToken(
         OauthAccessTokenValidationRequestTransfer $authAccessTokenValidationRequestTransfer
     ): OauthAccessTokenValidationResponseTransfer;
 
-    /**
-     * @param string $refreshTokenIdentifier
-     * @param string $customerReference
-     *
-     * @return \Generated\Shared\Transfer\RevokeRefreshTokenResponseTransfer
-     */
     public function revokeRefreshToken(string $refreshTokenIdentifier, string $customerReference): RevokeRefreshTokenResponseTransfer;
 
-    /**
-     * @param string $customerReference
-     *
-     * @return \Generated\Shared\Transfer\RevokeRefreshTokenResponseTransfer
-     */
     public function revokeAllRefreshTokens(string $customerReference): RevokeRefreshTokenResponseTransfer;
 }
