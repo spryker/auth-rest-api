@@ -119,8 +119,8 @@ class AccessTokenUserFinder implements AccessTokenUserFinderInterface
 
         $restUserTransfer = (new RestUserTransfer())
             ->fromArray($customerIdentifier, true)
-            ->setNaturalIdentifier($customerIdentifier[static::KEY_CUSTOMER_REFERENCE])
-            ->setSurrogateIdentifier($customerIdentifier[static::KEY_ID_CUSTOMER])
+            ->setNaturalIdentifier($customerIdentifier[static::KEY_CUSTOMER_REFERENCE] ?? null)
+            ->setSurrogateIdentifier($customerIdentifier[static::KEY_ID_CUSTOMER] ?? null)
             ->setScopes($oauthAccessTokenDataTransfer->getOauthScopes());
 
         foreach ($this->restUserMapperPlugins as $restUserMapperPlugin) {
