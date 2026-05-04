@@ -33,6 +33,8 @@
         <property name="customerReference" type="string" description="A unique reference for a customer."/>
         <property name="grantType" type="string" description="The method by which an application gets an access token (e.g., 'password', 'refresh_token')."/>
         <property name="username" type="string" description="The login name for a user account, typically an email address."/>
+        <property name="password" type="string" description="The password for a user account, used for authentication."/>
+        <property name="refreshToken" type="string" description="A token used to obtain a new access token when the current one expires."/>
     </transfer>
 
     <transfer name="OauthResponse">
@@ -44,6 +46,7 @@
         <property name="tokenType" type="string" description="The type of token issued, typically &quot;Bearer&quot;."/>
         <property name="expiresIn" type="int" description="The duration in seconds for which an access token is valid."/>
         <property name="refreshToken" type="string" description="A token used to obtain a new access token when the current one expires."/>
+        <property name="idCompanyUser" type="string" description="The identifier of the company user associated with the authenticated customer."/>
     </transfer>
 
     <transfer name="OauthError">

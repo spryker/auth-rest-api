@@ -17,6 +17,7 @@
         "spryker/zed-request": "^3.0.0"
     },
     "require-dev": {
+        "spryker/api-platform": "*",
         "spryker/code-sniffer": "*",
         "spryker/container": "*",
         "spryker/customer": "*",
@@ -26,6 +27,7 @@
         "spryker/testify": "*"
     },
     "suggest": {
+        "spryker/api-platform": "Use this package when you want to use the API Platform code.",
         "spryker/oauth-customer-connector": "If you want to authorize customers via Oauth module.",
         "spryker/rest-request-validator": "If you want to use rest request validation."
     },

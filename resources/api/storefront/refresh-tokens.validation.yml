@@ -1,0 +1,7 @@
+post:
+    refreshToken:
+        - NotBlank: ~
+
+delete:
+    refreshToken:
+        - NotBlank: ~
