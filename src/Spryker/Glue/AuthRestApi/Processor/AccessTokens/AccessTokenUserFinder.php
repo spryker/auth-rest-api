@@ -104,19 +104,26 @@ class AccessTokenUserFinder implements AccessTokenUserFinderInterface
             return null;
         }
 
-        return $this->mapRestUserTransfer($oauthAccessTokenDataTransfer, $restRequest);
-    }
-
-    protected function mapRestUserTransfer(
-        OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer,
-        RestRequestInterface $restRequest
-    ): RestUserTransfer {
-        /** @var array<string, mixed> $customerIdentifier */
         $customerIdentifier = $this->utilEncodingService->decodeJson(
-            $oauthAccessTokenDataTransfer->getOauthUserId() ?? '',
+            $oauthAccessTokenDataTransfer->getOauthUserId(),
             true,
         );
 
+        if (!is_array($customerIdentifier)) {
+            return null;
+        }
+
+        return $this->mapRestUserTransfer($oauthAccessTokenDataTransfer, $restRequest, $customerIdentifier);
+    }
+
+    /**
+     * @param array<string, mixed> $customerIdentifier
+     */
+    protected function mapRestUserTransfer(
+        OauthAccessTokenDataTransfer $oauthAccessTokenDataTransfer,
+        RestRequestInterface $restRequest,
+        array $customerIdentifier
+    ): RestUserTransfer {
         $restUserTransfer = (new RestUserTransfer())
             ->fromArray($customerIdentifier, true)
             ->setNaturalIdentifier($customerIdentifier[static::KEY_CUSTOMER_REFERENCE] ?? null)
