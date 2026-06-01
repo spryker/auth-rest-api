@@ -2,6 +2,7 @@ resource:
     name: AccessTokens
     shortName: access-tokens
     description: 'Creates customer access tokens using username and password credentials.'
+    resourceAttributesClassName: 'Generated\Shared\Transfer\RestAccessTokensAttributesTransfer'
 
     processor: Spryker\Glue\AuthRestApi\Api\Storefront\Processor\AccessTokensStorefrontProcessor
     paginationEnabled: false
