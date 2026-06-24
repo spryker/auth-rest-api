@@ -15,71 +15,99 @@ use Spryker\Glue\Kernel\AbstractBundleConfig;
 class AuthRestApiConfig extends AbstractBundleConfig
 {
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_TOKEN = 'token';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_ACCESS_TOKENS = 'access-tokens';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESOURCE_REFRESH_TOKENS = 'refresh-tokens';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const CLIENT_GRANT_PASSWORD = 'password';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const CLIENT_GRANT_REFRESH_TOKEN = 'refresh_token';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_DETAIL_MISSING_ACCESS_TOKEN = 'Missing access token.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_DETAIL_INVALID_ACCESS_TOKEN = 'Invalid access token.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_DETAIL_MESSAGE_ANONYMOUS_USER_WITH_ACCESS_TOKEN = 'Headers request error. A user can\'t act as logged and not logged user at the same time.';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_ACCESS_CODE_INVALID = '001';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_FORBIDDEN = '002';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_INVALID_LOGIN = '003';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_INVALID_REFRESH_TOKEN = '004';
 
     /**
+     * @api
+     *
      * @var string
      */
     public const RESPONSE_CODE_ANONYMOUS_USER_WITH_ACCESS_TOKEN = '005';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Glue\GlueApplication\GlueApplicationConfig::COLLECTION_IDENTIFIER_CURRENT_USER
      *
      * @var string
@@ -87,6 +115,8 @@ class AuthRestApiConfig extends AbstractBundleConfig
     public const COLLECTION_IDENTIFIER_CURRENT_USER = 'mine';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Glue\GlueApplication\Rest\RequestConstantsInterface::HEADER_AUTHORIZATION
      *
      * @var string
@@ -94,6 +124,8 @@ class AuthRestApiConfig extends AbstractBundleConfig
     public const HEADER_AUTHORIZATION = 'authorization';
 
     /**
+     * @api
+     *
      * @uses \Spryker\Glue\CartsRestApi\CartsRestApiConfig::HEADER_ANONYMOUS_CUSTOMER_UNIQUE_ID
      *
      * @var string
