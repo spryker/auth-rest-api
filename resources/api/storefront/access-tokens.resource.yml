@@ -13,6 +13,14 @@ resource:
           description: 'Issues a customer access token using customer credentials (email + password).'
           normalizationContext:
               gen_id: false
+          openapiContext:
+              responses:
+                  201:
+                      description: 'Access token issued.'
+                  401:
+                      description: 'The credentials could not be authenticated.'
+                  422:
+                      description: 'Unprocessable request.'
 
     properties:
         username:

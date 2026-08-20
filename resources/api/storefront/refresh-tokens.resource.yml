@@ -12,11 +12,27 @@ resource:
           description: 'Exchanges a valid refresh token for a new pair of access + refresh tokens.'
           normalizationContext:
               gen_id: false
+          openapiContext:
+              responses:
+                  201:
+                      description: 'A new access + refresh token pair.'
+                  401:
+                      description: 'The refresh token could not be exchanged.'
+                  422:
+                      description: 'Unprocessable request.'
 
         - type: Delete
           uriTemplate: '/refresh-tokens/{refreshToken}'
           description: 'Revokes a refresh token. Use the special id `mine` to revoke all refresh tokens of the authenticated customer.'
           read: false
+          openapiContext:
+              responses:
+                  204:
+                      description: 'Refresh token revoked.'
+                  401:
+                      description: 'The access token is invalid.'
+                  403:
+                      description: 'Access denied: missing access token.'
 
     properties:
         refreshToken:
