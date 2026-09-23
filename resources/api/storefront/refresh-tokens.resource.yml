@@ -25,6 +25,8 @@ resource:
           uriTemplate: '/refresh-tokens/{refreshToken}'
           description: 'Revokes a refresh token. Use the special id `mine` to revoke all refresh tokens of the authenticated customer.'
           read: false
+          extraProperties:
+              securityBearerAuthRequired: true
           openapiContext:
               responses:
                   204:
