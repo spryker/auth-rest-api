@@ -74,6 +74,7 @@ resource:
             type: string
             writable: false
             readable: true
-            description: 'Company user identifier associated with the authenticated customer'
+            responseOptional: true
+            description: 'Company user identifier associated with the authenticated customer. Null on a plain customer login; it is `POST /company-user-access-tokens` that selects a company user and mints a token carrying it.'
             openapiContext:
                 example: 'a4af4d59-3f12-5f37-a0fd-8c21764cf7f9'
