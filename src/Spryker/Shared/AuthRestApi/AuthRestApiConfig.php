@@ -7,9 +7,9 @@
 
 namespace Spryker\Shared\AuthRestApi;
 
-use Spryker\Shared\Kernel\AbstractBundleConfig;
+use Spryker\Shared\Kernel\AbstractSharedConfig;
 
-class AuthRestApiConfig extends AbstractBundleConfig
+class AuthRestApiConfig extends AbstractSharedConfig
 {
     /**
      * @api
