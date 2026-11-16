@@ -21,6 +21,8 @@ resource:
                       description: 'The credentials could not be authenticated.'
                   422:
                       description: 'Unprocessable request.'
+                  429:
+                      description: 'Too many login attempts for the account or from the client IP (code 4401); the login is temporarily blocked.'
 
     properties:
         username:
