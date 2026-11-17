@@ -72,7 +72,7 @@ class AccessTokenUserFinder implements AccessTokenUserFinderInterface
 
     protected function findUserByAccessToken(string $authorizationToken): OauthAccessTokenDataTransfer
     {
-        [$type, $accessToken] = $this->extractToken($authorizationToken);
+        [, $accessToken] = $this->extractToken($authorizationToken);
 
         $oauthTokenData = $this->oauthService->extractAccessTokenData($accessToken);
 
